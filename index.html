@@ -371,8 +371,6 @@
       background-size: 200% auto;
       animation: shimmer 3.5s linear infinite;
       position: relative;
-      padding-left: 4.5px;
-      margin-left: -4px;
     }
     .about-driven em::after {
       content: '';
@@ -688,8 +686,81 @@
     .footer-copy { font-size:12px; color:var(--muted); }
 
     /* ============================================
-       SCROLLBAR
+       EXTRACURRICULAR
     ============================================ */
+    #extracurricular { background: var(--bg); }
+    .extra-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      display: flex;
+      gap: 26px;
+      align-items: flex-start;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .extra-card:hover {
+      border-color: rgba(59,130,246,0.38);
+      box-shadow: 0 0 36px rgba(59,130,246,0.07);
+    }
+    .extra-icon {
+      width: 48px; height: 48px;
+      border-radius: 13px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.18);
+      display: flex; align-items:center; justify-content:center;
+      flex-shrink: 0;
+    }
+    .extra-icon svg { width:22px; height:22px; }
+    .extra-body { flex: 1; }
+    .extra-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .extra-title {
+      font-family: var(--font-h);
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .extra-duration {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 20px;
+      padding: 3px 11px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .extra-desc {
+      color: var(--text2);
+      font-size: 14.5px;
+      line-height: 1.78;
+    }
+    .extra-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .extra-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text2);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 11px;
+    }
+    @media (max-width: 600px) {
+      .extra-card { flex-direction: column; gap: 18px; }
+    }
+
+
     ::-webkit-scrollbar { width:7px; }
     ::-webkit-scrollbar-track { background:var(--bg); }
     ::-webkit-scrollbar-thumb { background:var(--border); border-radius:4px; }
@@ -738,6 +809,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#leadership">Leadership</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#extracurricular">Activities</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -751,6 +823,7 @@
     <a href="#about"      onclick="closeMobile()">About</a>
     <a href="#leadership" onclick="closeMobile()">Leadership</a>
     <a href="#skills"     onclick="closeMobile()">Skills</a>
+    <a href="#extracurricular" onclick="closeMobile()">Activities</a>
     <a href="#projects"   onclick="closeMobile()">Projects</a>
     <a href="#education"  onclick="closeMobile()">Education</a>
     <a href="#contact"    onclick="closeMobile()">Contact</a>
@@ -772,7 +845,9 @@
             B.Sc. Computer Science (Data Science) Applicant — La Trobe University, Melbourne
           </p>
           <p class="hero-intro fade fade-delay-2">
-            A high-achieving science graduate with an excellent academic record, strong foundations in mathematics and analytical sciences, and a strong passion for artificial intelligence and data-driven problem solving, eager to apply these skills in real-world projects and research.
+            A high-achieving science graduate with a flawless academic record, strong
+            foundations in mathematics and analytical science, and a deep passion for
+            artificial intelligence and data-driven problem solving.
           </p>
           <div class="hero-btns fade fade-delay-3">
             <a href="#contact" class="btn btn-primary">
@@ -785,11 +860,11 @@
           </div>
           <div class="hero-stats fade fade-delay-4">
             <div>
-              <div class="stat-num">5.00/5</div>
+              <div class="stat-num">5.00<sup>/5</sup></div>
               <div class="stat-label">HSC GPA · 2025</div>
             </div>
             <div>
-              <div class="stat-num">5.00/5</div>
+              <div class="stat-num">5.00<sup>/5</sup></div>
               <div class="stat-label">SSC GPA · 2023</div>
             </div>
             <div>
@@ -819,7 +894,10 @@
           </div>
           <div class="about-text">
             <p>
-   		 I’m <span class="hl">Robiul Islam</span>, a science graduate from <span class="hl">Bogura, Bangladesh</span>, with a deep passion for technology and problem-solving. I achieved the <span class="hl">highest GPA of 5.00</span> in both SSC and HSC national examinations, reflecting my consistency and discipline.
+              I'm <span class="hl">Robiul Islam</span>, a science graduate from <span class="hl">Bogura, Bangladesh,</span> with a deep
+              passion for technology and problem-solving. My academic journey has been defined by consistency
+              and discipline — earning a perfect <span class="hl">GPA of 5.00</span> in both my SSC and HSC
+              national examinations.
             </p>
             <p>
               My technical foundation rests on <span class="hl">C and C++</span>, with practical web experience
@@ -845,7 +923,7 @@
             </div>
             <div>
               <h4>Programming</h4>
-              <p>Moderate in C and C++; building logic-first applications and expanding into web development with HTML.</p>
+              <p>Proficient in C and C++; building logic-first applications and expanding into web development with HTML.</p>
             </div>
           </div>
           <div class="about-card">
@@ -906,7 +984,7 @@
           </div>
           <h3>English Language Club Leadership</h3>
           <p>
-            As an active member of the English Language Club from 2018 to 2024, I led small teams in in-class debates,
+            As an active member of the English Language Club from 2018 to 2024, I led small teams in debates,
             public speaking, and in-class competitions — demonstrating teamwork and communication skills.
             I maintained this commitment even through the COVID-19 period, participating in online sessions
             without interruption throughout.
@@ -1013,12 +1091,58 @@
           <div class="badges">
             <span class="badge">Bengali (Native)</span>
             <span class="badge">English (Proficient)</span>
-            <span class="badge">Hindi (Fluent — Conversational)</span>
+            <span class="badge">Hindi (Fluent - Conversational)</span>
             <span class="badge">Urdu (Conversational)</span>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ========================== EXTRACURRICULAR ========================== -->
+  <section id="extracurricular" class="section">
+    <div class="container">
+      <div class="section-eyebrow fade">Beyond Academics</div>
+      <h2 class="section-title fade">Extracurricular Activities</h2>
+      <div class="title-line fade"></div>
+      <p class="section-sub fade">Six years of active involvement that sharpened leadership, communication, and resilience beyond the classroom.</p>
+
+      <div class="extra-card fade">
+        <div class="extra-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <div class="extra-body">
+          <div class="extra-header">
+            <span class="extra-title">English Language Club</span>
+            <span class="extra-duration">2018 – 2024</span>
+          </div>
+          <p class="extra-desc">
+            Actively participated in the English Language Club for six consecutive years, leading small teams through
+            debates, public speaking sessions, and in-class competitions. Developed strong leadership, communication,
+            and teamwork skills by guiding peers, organising discussion topics, and providing constructive feedback
+            in a collaborative setting.
+          </p>
+          <p class="extra-desc" style="margin-top:10px;">
+            Maintained uninterrupted involvement throughout the COVID-19 period by attending all online sessions
+            without exception — demonstrating dedication, adaptability, and a commitment to continuous learning
+            under challenging circumstances. Contributed to a collaborative environment by encouraging participation
+            and supporting fellow members in building their language proficiency and confidence.
+          </p>
+          <div class="extra-tags">
+            <span class="badge">Leadership</span>
+            <span class="badge">Public Speaking</span>
+            <span class="badge">Debating</span>
+            <span class="badge">Teamwork</span>
+            <span class="badge">Peer Support</span>
+            <span class="badge">Adaptability</span>
+            <span class="badge">Online Collaboration</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1031,17 +1155,16 @@
       <p class="section-sub fade">Real-world projects that demonstrate a hands-on, problem-solving approach to learning and building.</p>
       <div class="projects-grid">
 
-        <!-- P1: Expense Tracker Webapp -->
+        <!-- P1: AI-Powered Expense Tracker Webapp -->
         <div class="project-card fade">
           <div class="proj-thumb">
             <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             <span class="proj-tag">AI Project</span>
           </div>
           <div class="proj-body">
-            <h3 class="proj-title">Expense Tracker Webapp</h3>
+            <h3 class="proj-title">AI-Powered Expense Tracker Webapp</h3>
             <p class="proj-desc">
               A web application to manage daily and monthly expenses, featuring expense recording, categorization, and tracking. I planned the application structure and user flow, then guided Claude AI through prompt engineering to generate, debug, and refine the code. I actively tested the system via live previews, identified issues, and iteratively directed the AI to improve functionality. Through this process, I developed skills in prompt engineering, AI-guided coding, and systematic debugging. The app helps users track and manage their expenses efficiently. Technologies used include Node.js, Java (via Node.js integration), and GitHub for version control.
-            </p>
             <div class="proj-pills">
               <span class="proj-pill">Python</span>
               <span class="proj-pill">GitHub</span>
@@ -1058,7 +1181,7 @@
           </div>
         </div>
 
-        <!-- P2: Expense Tracker — Excel Template -->
+        <!-- P2: Expense Tracker Excel Template -->
         <div class="project-card fade fade-delay-1">
           <div class="proj-thumb">
             <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
@@ -1069,7 +1192,7 @@
             <p class="proj-desc">
               A structured Excel template for personal financial tracking, featuring categorized entries, built-in formulas, and a clear layout for monitoring daily and monthly expenses. I designed the template structure, data alignment, and formula logic, while using Claude AI to refine formulas and polish the final version. I resolved formula errors through iterative testing and guidance. Through this project, I strengthened my Excel skills and learned practical AI-assisted problem-solving. This template helps users manage their finances efficiently in a simple file format.
             </p>
-            <div class="proj-pills">
+             <div class="proj-pills">
               <span class="proj-pill">Microsoft Excel</span>
               <span class="proj-pill">Formulas</span>
               <span class="proj-pill">Claude AI</span>
@@ -1093,9 +1216,9 @@
           <div class="proj-body">
             <h3 class="proj-title">Smart Calculator</h3>
             <p class="proj-desc">
-              A console-based calculator built using C and C++, supporting core arithmetic operations with structured error handling and clean logical implementation. I personally coded the entire calculator using logic-based programming techniques, and used AI as a tool to check for potential issues. This project strengthened my understanding of fundamental programming concepts, control flow, and problem-solving skills. The calculator demonstrates my C/C++ capabilities and logical coding proficiency. Development was done in Dev-C++, with the code hosted on GitHub for sharing and review.
+             A console-based calculator built using C and C++, supporting core arithmetic operations with structured error handling and clean logical implementation. I personally coded the entire calculator using logic-based programming techniques, and used AI as a tool to check for potential issues. This project strengthened my understanding of fundamental programming concepts, control flow, and problem-solving skills. The calculator demonstrates my C/C++ capabilities and logical coding proficiency. Development was done in Dev-C++, with the code hosted on GitHub for sharing and review.
             </p>
-            <div class="proj-pills">
+             <div class="proj-pills">
               <span class="proj-pill">C</span>
               <span class="proj-pill">C++</span>
               <span class="proj-pill">Dev-C++</span>
@@ -1312,6 +1435,7 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#extracurricular">Activities</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
