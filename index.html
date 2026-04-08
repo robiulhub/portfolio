@@ -351,10 +351,11 @@
       font-family: var(--font-h);
       font-size: clamp(28px, 3.8vw, 44px);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.2;
       letter-spacing: -0.5px;
       margin-bottom: 8px;
       position: relative;
+      overflow: visible;
     }
     .about-driven .driven-line1 {
       display: block;
@@ -364,16 +365,18 @@
     .about-driven em {
       font-style: italic;
       display: block;
-      background: linear-gradient(100deg, #3B82F6 0%, #818CF8 45%, #38BDF8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size: 200% auto;
-      animation: shimmer 3.5s linear infinite;
       position: relative;
+      line-height: 1.5;
+      overflow: visible;
     }
-    .about-driven em::after {
-      content: '';
+    /* SVG handles the gradient text — no background-clip, no descender clipping */
+    .about-driven em svg.em-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+    .about-driven .em-underline {
       display: block;
       height: 2.5px;
       width: 100%;
@@ -777,6 +780,7 @@
       .hero-title { font-size: 1.2rem; }
       .about-grid { grid-template-columns:1fr; gap:40px; }
       .about-driven em { display:inline; }
+      .about-driven em .em-inner { display:inline; }
       .about-photo-row { flex-direction: column; align-items: flex-start; gap: 18px; }
       .about-photo { width: 120px; height: 120px; border-radius: 14px; }
       .leadership-grid { grid-template-columns:1fr; }
@@ -890,7 +894,22 @@
             <div class="about-photo">
               <img src="my photo.webp" alt="Robiul Islam">
             </div>
-            <h2 class="about-driven"><span class="driven-line1">Driven by curiosity,</span> <em>guided by data.</em></h2>
+            <h2 class="about-driven"><span class="driven-line1">Driven by curiosity,</span> <em><svg class="em-svg" viewBox="0 0 520 60" xmlns="http://www.w3.org/2000/svg" aria-label="guided by data." role="img" preserveAspectRatio="xMinYMid meet">
+                <defs>
+                  <linearGradient id="emGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3B82F6">
+                      <animate attributeName="stop-color" values="#3B82F6;#38BDF8;#818CF8;#3B82F6" dur="3.5s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="50%" stop-color="#818CF8">
+                      <animate attributeName="stop-color" values="#818CF8;#3B82F6;#38BDF8;#818CF8" dur="3.5s" repeatCount="indefinite"/>
+                    </stop>
+                    <stop offset="100%" stop-color="#38BDF8">
+                      <animate attributeName="stop-color" values="#38BDF8;#818CF8;#3B82F6;#38BDF8" dur="3.5s" repeatCount="indefinite"/>
+                    </stop>
+                  </linearGradient>
+                </defs>
+                <text x="0" y="48" font-family="Playfair Display, serif" font-style="italic" font-weight="700" font-size="44" fill="url(#emGrad)">guided by data.</text>
+              </svg><span class="em-underline"></span></em></h2>
           </div>
           <div class="about-text">
             <p>
@@ -1043,8 +1062,8 @@
             <span class="badge">Microsoft Word</span>
             <span class="badge">Microsoft PowerPoint</span>
             <span class="badge">Claude AI</span>
-            <span class="badge">ChatGPT</span>
             <span class="badge">Gemini</span>
+            <span class="badge">ChatGPT</span>
           </div>
         </div>
 
@@ -1091,7 +1110,7 @@
           <div class="badges">
             <span class="badge">Bengali (Native)</span>
             <span class="badge">English (Proficient)</span>
-            <span class="badge">Hindi (Fluent - Conversational)</span>
+            <span class="badge">(Fluent — Conversational)</span>
             <span class="badge">Urdu (Conversational)</span>
           </div>
         </div>
